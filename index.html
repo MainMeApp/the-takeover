@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>The Takeover</title>
-<meta name="theme-color" content="#0D1B3E">
+<meta name="theme-color" content="#07090D">
 <meta name="description" content="The Takeover — workout, cardio and nutrition tracker.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
@@ -239,6 +239,86 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
 .photo-cancel{width:100%;padding:10px;border:none;background:none;color:var(--muted);font-weight:700;font-size:13px;cursor:pointer;font-family:'Inter',sans-serif}
 .photo-loading,.photo-err{font-size:13px;color:var(--muted);line-height:1.5}
 .photo-err{color:#B3261E}
+
+/* ═══ THEME v3 — dark modern fitness ═══ */
+:root{
+  --bg:#07090D;--bg2:#10141C;--navy:#F2F5F9;--navy2:#1B2331;
+  --orange:#C8F542;--green:#3DD68C;--border:#212A38;
+  --muted:#8B95A7;--dim:#5F6B7E;--faint:#39424F;
+  --text:#EDF1F7;--shadow:0 10px 30px rgba(0,0,0,.45);
+}
+.app-header{background:var(--bg2)}
+.wk-btn{background:var(--bg2)}
+.day-btn{background:var(--bg2)}
+/* STREAK */
+.streak-bar{background:var(--bg2)}
+/* EXERCISE CARDS */
+.ex-card{background:var(--bg2)}
+.done-btn{background:var(--bg2)}
+.timer-btn{background:var(--bg2)}
+/* REST DAY CARD */
+.rest-card{background:var(--bg2)}
+.session-ta{background:var(--bg2)}
+/* CARDIO */
+.cardio-card{background:var(--bg2)}
+.dtt-btn{background:var(--bg2)}
+.macro-box{background:var(--bg2)}
+.preset-btn{background:var(--bg2)}
+.meal-entry{background:var(--bg2)}
+.ov-cell{background:var(--bg2)}
+.checkin-card{background:var(--bg2)}
+/* SYNC */
+.sync-btn{background:var(--bg2)}
+.backup-status{background:var(--bg2)}
+.photo-card{background:var(--bg2)}
+body{background:var(--bg)}
+.app-header{background:linear-gradient(160deg,#0B0F16,#07090D 70%);border-bottom:1px solid var(--border)}
+.app-title{color:#fff;letter-spacing:-.01em}
+.app-title span,.app-sub{color:var(--orange)}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:60;transform:none;max-width:none;width:auto;box-shadow:0 -8px 28px rgba(0,0,0,.5);background:rgba(9,12,17,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-top:1px solid var(--border);padding:6px 8px calc(6px + env(safe-area-inset-bottom));margin-top:0}
+.tab{color:var(--dim);border-radius:12px;font-size:10.5px;letter-spacing:.02em}
+.tab.active{background:var(--orange);color:#0A0C10}
+.panel{animation:panelIn .28s ease both}
+@keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ex-card,.streak-bar,.macro-box,.ov-cell,.cardio-card,.checkin-card,.rest-card{border-radius:18px}
+.macro-val,.ov-pct,.cardio-cell-val,.streak-count{font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.macro-val{font-size:30px;color:#fff}
+.ov-pct{font-size:22px;color:#fff}
+.ov-cell.current{border-color:var(--orange);box-shadow:0 0 0 1px var(--orange)}
+.ov-cell.done{border-color:rgba(61,214,140,.5)}
+.streak-count{color:#fff;font-size:26px}
+.streak-count span{color:var(--muted)}
+.sdot{background:#232B38}
+.sdot.hit{background:var(--green)}
+.sdot.cur{background:var(--orange);box-shadow:0 0 0 3px rgba(200,245,66,.18)}
+.day-btn{background:var(--bg2);border-color:var(--border);color:var(--text)}
+.day-btn.active,.wk-btn.active,.dtt-btn.active{background:var(--orange);color:#0A0C10;border-color:var(--orange)}
+.day-btn.done{border-color:rgba(61,214,140,.55)}
+.pb-fill,.nutr-bar-fill,.hero-prot-fill{background:linear-gradient(90deg,#8FE000,#C8F542)}
+.timer-pb-fill{background:var(--orange)}
+.done-btn,.lock-btn,.timer-start,.custom-add-btn{background:var(--orange);color:#0A0C10;border:none}
+.sync-btn{background:var(--bg2);color:var(--text);border:1px solid var(--border)}
+.sync-danger{background:rgba(239,83,80,.12);color:#FF7A76;border:1px solid rgba(239,83,80,.4)}
+input,textarea,select{background:#161C26;border-color:#28303E;color:var(--text)}
+input::placeholder,textarea::placeholder{color:#4A5468}
+.photo-card{background:var(--bg2);box-shadow:var(--shadow)}
+.smart-badge{background:rgba(200,245,66,.12);color:var(--orange)}
+.toast{background:#1B2331;color:#fff;border:1px solid var(--border)}
+/* hero */
+.hero-card{display:flex;align-items:center;gap:14px;background:linear-gradient(150deg,#121826,#0C1017);border:1px solid var(--border);border-radius:20px;padding:14px 16px;margin-bottom:12px;box-shadow:var(--shadow)}
+.hero-ring{position:relative;width:76px;height:76px;flex:0 0 auto}
+.hero-ring-num{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums}
+.hero-ring-num span{font-size:11px;color:var(--muted);margin-left:1px}
+.hero-main{flex:1;min-width:0}
+.hero-kcal{font-size:27px;font-weight:800;color:#fff;letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.05}
+.hero-kcal span{font-size:13px;color:var(--muted);font-weight:600;letter-spacing:0}
+.hero-sub{font-size:11px;color:var(--muted);margin:2px 0 8px}
+.hero-prot{height:6px;border-radius:99px;background:#232B38;overflow:hidden}
+.hero-prot-lbl{font-size:11px;color:var(--muted);margin-top:5px;font-weight:600}
+.hero-side{text-align:right;flex:0 0 auto}
+.hero-wk{font-size:27px;font-weight:800;color:var(--orange);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1.05}
+.hero-wk span{font-size:14px}
+.hero-wk-lbl{font-size:10.5px;color:var(--muted);font-weight:600;line-height:1.35;margin-top:2px}
 </style>
 </head>
 <body>
@@ -265,6 +345,7 @@ body{background:var(--bg);color:var(--text);font-family:'Inter',sans-serif;font-
   <div id="content">
     <div id="panel-workout" class="panel active">
       <div id="day-grid"></div>
+      <div id="hero-stats"></div>
       <div id="streak-area"></div>
       <div id="day-header-area"></div>
       <div id="exercise-list"></div>
@@ -885,6 +966,36 @@ function renderStreakBar(){
     + '<div class="streak-sub">'+msg+'</div>'
     + '<div class="streak-dots">'+dots+'</div>'
     + '</div>'
+    + '</div>';
+  renderHero();
+}
+
+// ── HERO STATS (v3) ─────────────────────────────────────────────
+function renderHero(){
+  var el = document.getElementById('hero-stats');
+  if(!el) return;
+  var n = getNutr();
+  var meals = n.meals || [];
+  var cal = meals.reduce(function(a,m){ return a + (m.cal||0); }, 0);
+  var prot = meals.reduce(function(a,m){ return a + (m.prot||0); }, 0);
+  var target = (n.dayType === 'rest') ? CAL_REST : CAL_LIFT;
+  var pct = Math.max(0, Math.min(1, cal / target));
+  var C = 169.6, off = (C * (1 - pct)).toFixed(1);
+  var wkPct = Math.round(getWeekPct(week) * 100);
+  var pPct = Math.max(0, Math.min(100, Math.round(prot / PROT_TARGET * 100)));
+  el.innerHTML =
+    '<div class="hero-card">'
+    + '<div class="hero-ring"><svg width="76" height="76" viewBox="0 0 64 64">'
+    + '<circle cx="32" cy="32" r="27" fill="none" stroke="#232B38" stroke-width="7"/>'
+    + '<circle cx="32" cy="32" r="27" fill="none" stroke="#C8F542" stroke-width="7" stroke-linecap="round" stroke-dasharray="' + C + '" stroke-dashoffset="' + off + '" transform="rotate(-90 32 32)"/>'
+    + '</svg><div class="hero-ring-num">' + Math.round(pct * 100) + '<span>%</span></div></div>'
+    + '<div class="hero-main">'
+    + '<div class="hero-kcal">' + cal.toLocaleString() + '<span> / ' + target.toLocaleString() + ' kcal</span></div>'
+    + '<div class="hero-sub">Fuel for the selected day</div>'
+    + '<div class="hero-prot"><div class="hero-prot-fill" style="width:' + pPct + '%"></div></div>'
+    + '<div class="hero-prot-lbl">Protein ' + prot + 'g of ' + PROT_TARGET + 'g</div>'
+    + '</div>'
+    + '<div class="hero-side"><div class="hero-wk">' + wkPct + '<span>%</span></div><div class="hero-wk-lbl">Week ' + week + '<br>complete</div></div>'
     + '</div>';
 }
 

@@ -1,15 +1,25 @@
 {
   "name": "The Takeover",
   "short_name": "Takeover",
-  "description": "Workout, cardio and nutrition tracker — the Takeover training program.",
+  "description": "Workout, cardio and nutrition tracker \u2014 the Takeover training program.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#F5F6FA",
-  "theme_color": "#0D1B3E",
+  "background_color": "#07090D",
+  "theme_color": "#07090D",
   "icons": [
-    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" },
-    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "maskable" }
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
   ]
 }
