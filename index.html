@@ -304,6 +304,9 @@ input::placeholder,textarea::placeholder{color:#4A5468}
 .photo-card{background:var(--bg2);box-shadow:var(--shadow)}
 .smart-badge{background:rgba(200,245,66,.12);color:var(--orange)}
 .toast{background:#1B2331;color:#fff;border:1px solid var(--border)}
+.timer-btn.active,.timer-btn:hover{background:var(--orange);color:#0A0C10;border-color:var(--orange)}
+.timer-display.go{color:var(--orange);animation:goPulse .5s ease 3}
+@keyframes goPulse{50%{transform:scale(1.22)}}
 /* hero */
 .hero-card{display:flex;align-items:center;gap:14px;background:linear-gradient(150deg,#121826,#0C1017);border:1px solid var(--border);border-radius:20px;padding:14px 16px;margin-bottom:12px;box-shadow:var(--shadow)}
 .hero-ring{position:relative;width:76px;height:76px;flex:0 0 auto}
@@ -916,18 +919,54 @@ function lockSession(){
 }
 
 // ── REST TIMER ────────────────────────────────────────────────────
+var audioCtx = null;
+function primeAudio(){
+  try{
+    if(!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+    if(audioCtx.state === 'suspended') audioCtx.resume();
+  }catch(e){}
+}
+function beepDone(){
+  if(!audioCtx) return;
+  try{
+    var t0 = audioCtx.currentTime;
+    [0, 0.22, 0.44].forEach(function(off, i){
+      var o = audioCtx.createOscillator(), g = audioCtx.createGain();
+      o.type = 'sine'; o.frequency.value = (i === 2 ? 1320 : 880);
+      g.gain.setValueAtTime(0.0001, t0 + off);
+      g.gain.exponentialRampToValueAtTime(0.25, t0 + off + 0.02);
+      g.gain.exponentialRampToValueAtTime(0.0001, t0 + off + 0.18);
+      o.connect(g); g.connect(audioCtx.destination);
+      o.start(t0 + off); o.stop(t0 + off + 0.2);
+    });
+  }catch(e){}
+}
+function fmtTime(s){ return Math.floor(s/60) + ':' + (s%60<10?'0':'') + (s%60); }
 function startTimer(exId, tid, pbid, secs){
-  if(activeTimers[exId]) clearInterval(activeTimers[exId]);
-  var elapsed = 0;
-  var total   = secs;
-  var dispEl  = document.getElementById(tid);
-  var pbEl    = document.getElementById(pbid);
+  var dispEl, pbEl;
+  if(activeTimers[exId]){
+    clearInterval(activeTimers[exId]); delete activeTimers[exId];
+    dispEl = document.getElementById(tid); pbEl = document.getElementById(pbid);
+    if(dispEl){ dispEl.textContent = 'REST'; dispEl.classList.remove('go'); }
+    if(pbEl) pbEl.style.width = '100%';
+    return;
+  }
+  primeAudio();
+  var elapsed = 0, total = secs;
+  dispEl = document.getElementById(tid);
+  if(dispEl){ dispEl.textContent = fmtTime(total); dispEl.classList.remove('go'); }
   activeTimers[exId] = setInterval(function(){
     elapsed++;
     var rem = total - elapsed;
-    if(dispEl) dispEl.textContent = rem > 0 ? Math.floor(rem/60)+':'+(rem%60<10?'0':'')+(rem%60) : 'GO!';
-    if(pbEl)   pbEl.style.width   = Math.max(0,(1-elapsed/total)*100)+'%';
-    if(elapsed >= total){ clearInterval(activeTimers[exId]); delete activeTimers[exId]; if(navigator.vibrate) navigator.vibrate(200); }
+    dispEl = document.getElementById(tid); pbEl = document.getElementById(pbid);
+    if(dispEl) dispEl.textContent = rem > 0 ? fmtTime(rem) : 'GO!';
+    if(pbEl)   pbEl.style.width   = Math.max(0, (1 - elapsed/total) * 100) + '%';
+    if(elapsed >= total){
+      clearInterval(activeTimers[exId]); delete activeTimers[exId];
+      if(dispEl) dispEl.classList.add('go');
+      if(navigator.vibrate) navigator.vibrate(200);
+      beepDone();
+    }
   }, 1000);
 }
 
