@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>The Takeover</title>
-<meta name="theme-color" content="#07090D">
+<meta name="theme-color" content="#05070A">
 <meta name="description" content="The Takeover — workout, cardio and nutrition tracker.">
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
@@ -323,6 +323,78 @@ input::placeholder,textarea::placeholder{color:#4A5468}
 .hero-wk span{font-size:14px}
 .hero-wk-lbl{font-size:10.5px;color:var(--muted);font-weight:600;line-height:1.35;margin-top:2px}
 </style>
+<style>
+/* ═══ THEME v4 — Liquid Glass ═══ */
+:root{
+  --bg:#05070A;--bg2:rgba(255,255,255,.06);--navy:#F5F7FA;--navy2:rgba(255,255,255,.10);
+  --orange:#30D158;--green:#30D158;--border:rgba(255,255,255,.13);
+  --muted:#A7B0BE;--dim:#6E7787;--faint:#3A4150;
+  --text:#F5F7FA;--shadow:0 16px 40px rgba(0,0,0,.42);
+}
+body{background:#05070A}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;background:
+ radial-gradient(420px 300px at 10% -4%, rgba(48,209,88,.17), rgba(48,209,88,0) 65%),
+ radial-gradient(460px 330px at 96% 10%, rgba(10,132,255,.15), rgba(10,132,255,0) 65%),
+ radial-gradient(540px 400px at 50% 110%, rgba(255,55,95,.11), rgba(255,55,95,0) 65%)}
+.app-shell{position:relative;z-index:1;background:transparent;padding-bottom:118px}
+.app-header{background:rgba(8,10,14,.55);backdrop-filter:blur(22px) saturate(170%);-webkit-backdrop-filter:blur(22px) saturate(170%);border-bottom:1px solid rgba(255,255,255,.08)}
+.app-title{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',Inter,sans-serif;font-weight:800;letter-spacing:0;font-size:23px;color:#fff}
+.glass-card,.ex-card,.streak-bar,.macro-box,.ov-cell,.cardio-card,.checkin-card,.rest-card,.photo-card,.hero-card,.meal-entry,.preset-btn,.backup-status{
+ background:rgba(255,255,255,.055);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
+ border:1px solid rgba(255,255,255,.13);box-shadow:inset 0 1px 0 rgba(255,255,255,.13),0 14px 34px rgba(0,0,0,.35);border-radius:22px}
+.tabs{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(10px + env(safe-area-inset-bottom));width:max-content;max-width:calc(100% - 16px);
+ background:rgba(18,22,30,.55);backdrop-filter:blur(24px) saturate(180%);-webkit-backdrop-filter:blur(24px) saturate(180%);
+ border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:5px;gap:2px;z-index:200;margin:0;
+ box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 18px 40px rgba(0,0,0,.5)}
+.tab{border:none;border-radius:999px;padding:8px 10px;font-size:11px;font-weight:600;letter-spacing:.01em;color:rgba(235,240,248,.6);background:transparent;flex:0 0 auto}
+.tab.active{background:rgba(255,255,255,.94);color:#0A0D12;font-weight:700;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.wk-num,.macro-val,.ov-pct,.hero-kcal,.streak-count,.timer-display,.cardio-cell-val,.day-pct{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display',Inter,sans-serif;letter-spacing:-.02em}
+.macro-val{color:#fff}
+.done-btn,.lock-btn,.timer-start,.custom-add-btn{background:rgba(255,255,255,.94);color:#0A0D12;border:none}
+.sync-btn{background:rgba(255,255,255,.07);color:var(--text);border:1px solid rgba(255,255,255,.14);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.sync-danger{background:rgba(255,69,58,.14);color:#FF8A80;border:1px solid rgba(255,69,58,.35)}
+.pb-fill,.nutr-bar-fill,.hero-prot-fill{background:linear-gradient(90deg,#30D158,#7BE495)}
+.timer-pb-fill{background:#30D158}
+.timer-btn{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);color:var(--text)}
+.timer-btn.active,.timer-btn:hover{background:rgba(255,255,255,.94);color:#0A0D12;border-color:transparent}
+.timer-display.go{color:#30D158}
+.rest-timer-bar{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09)}
+.day-btn,.wk-btn,.dtt-btn{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.13);color:var(--text);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+.day-btn.active,.wk-btn.active,.dtt-btn.active{background:rgba(255,255,255,.94);color:#0A0D12;border-color:transparent}
+.day-btn.done{border-color:rgba(48,209,88,.55)}
+.sdot{background:rgba(255,255,255,.15)}
+.sdot.hit{background:#30D158}
+.sdot.cur{background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.16)}
+.hero-prot{background:rgba(255,255,255,.10)}
+.hero-wk{color:#30D158}
+input,textarea,select{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);color:#fff;border-radius:12px}
+input::placeholder,textarea::placeholder{color:#59637A}
+.smart-badge{background:rgba(48,209,88,.14);color:#30D158}
+.photo-card{background:rgba(255,255,255,.055)}
+.toast{background:rgba(20,24,32,.72);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);color:#fff;border:1px solid rgba(255,255,255,.16)}
+.save-ind{color:var(--dim)}
+/* home */
+.home-date{font-size:13px;font-weight:600;color:var(--muted);margin-top:4px}
+.home-title{font-size:33px;font-weight:800;letter-spacing:-.03em;color:#fff;margin:2px 0 14px}
+.rings-flex{display:flex;gap:16px;align-items:center}
+.ring-legend{flex:1;min-width:0}
+.rl-row{display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:13px;font-weight:600;color:#fff;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.rl-row:last-child{border-bottom:none}
+.rl-dot{width:8px;height:8px;border-radius:50%;display:inline-block;margin-right:7px}
+.rl-val{color:var(--muted);font-weight:600;font-variant-numeric:tabular-nums;white-space:nowrap}
+.today-lbl{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+.today-big{font-size:20px;font-weight:800;letter-spacing:-.02em;color:#fff;line-height:1.25}
+.open-btn{margin-top:12px;width:100%;padding:12px;border-radius:14px;background:rgba(255,255,255,.94);color:#0A0D12;font-weight:700;border:none;font-size:14px;cursor:pointer;font-family:inherit}
+.quick-row{display:flex;gap:8px;margin-bottom:12px}
+.quick-btn{flex:1;padding:13px 4px;border-radius:18px;font-size:12.5px;font-weight:700;color:#fff;cursor:pointer;font-family:inherit;
+ background:rgba(255,255,255,.055);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
+ border:1px solid rgba(255,255,255,.13);box-shadow:inset 0 1px 0 rgba(255,255,255,.13)}
+.quick-btn:active{transform:scale(.97)}
+.wk-dots{display:flex;gap:6px;margin-top:4px}
+.wk-dot{flex:1;text-align:center;font-size:10px;color:var(--muted);font-weight:600;line-height:1.5}
+.wk-dot i{display:block;width:26px;height:26px;margin:0 auto 4px;border-radius:50%;border:2px solid rgba(255,255,255,.18)}
+
+</style>
 </head>
 <body>
 <div class="app-shell">
@@ -346,7 +418,8 @@ input::placeholder,textarea::placeholder{color:#4A5468}
   <div class="save-ind" id="save-ind">&#9679; autosave on</div>
 
   <div id="content">
-    <div id="panel-workout" class="panel active">
+    <div id="panel-home" class="panel active"><div id="home-root"></div></div>
+    <div id="panel-workout" class="panel">
       <div id="day-grid"></div>
       <div id="hero-stats"></div>
       <div id="streak-area"></div>
@@ -402,11 +475,12 @@ input::placeholder,textarea::placeholder{color:#4A5468}
 </div>
 
 <nav class="tabs" aria-label="Main">
-  <button class="tab active" onclick="switchTab('workout',this)">&#128170; Workout</button>
-  <button class="tab" onclick="switchTab('cardio',this)">&#127939; Cardio</button>
-  <button class="tab" onclick="switchTab('nutrition',this)">&#129385; Nutrition</button>
-  <button class="tab" onclick="switchTab('progress',this)">&#128202; Progress</button>
-  <button class="tab" onclick="switchTab('sync',this)">&#128260; Sync</button>
+  <button class="tab active" onclick="switchTab('home',this)">Home</button>
+  <button class="tab" onclick="switchTab('workout',this)">Workout</button>
+  <button class="tab" onclick="switchTab('cardio',this)">Cardio</button>
+  <button class="tab" onclick="switchTab('nutrition',this)">Nutrition</button>
+  <button class="tab" onclick="switchTab('progress',this)">Progress</button>
+  <button class="tab" onclick="switchTab('sync',this)">Sync</button>
 </nav>
 
 <div class="toast" id="toast"></div>
@@ -601,6 +675,7 @@ function switchTab(id,btn){
   document.querySelectorAll('.tab').forEach(function(b){ b.classList.remove('active'); });
   document.getElementById('panel-'+id).classList.add('active');
   btn.classList.add('active');
+  if(id==='home') renderHome();
   if(id==='cardio') renderCardio();
   if(id==='nutrition') renderNutrition();
   if(id==='progress') renderProgress();
@@ -1007,7 +1082,69 @@ function renderStreakBar(){
     + '</div>'
     + '</div>';
   renderHero();
+  renderHome();
 }
+// ── HOME (v4) — unified Today dashboard ─────────────────────────
+function gotoTab(id){
+  var btn = document.querySelector('.tab[onclick*="' + "'" + id + "'" + '"]');
+  if(btn) switchTab(id, btn);
+}
+function homePhoto(){
+  gotoTab('nutrition');
+  setTimeout(function(){ var i = document.getElementById('photo-input'); if(i) i.click(); }, 90);
+}
+function renderHome(){
+  var root = document.getElementById('home-root');
+  if(!root) return;
+  var n = getNutr();
+  var meals = n.meals || [];
+  var cal = meals.reduce(function(a,m){ return a + (m.cal||0); }, 0);
+  var prot = meals.reduce(function(a,m){ return a + (m.prot||0); }, 0);
+  var target = (n.dayType === 'rest') ? CAL_REST : CAL_LIFT;
+  var info = SPLIT.find(function(s){ return s.key === day; });
+  var wo = WORKOUTS[day];
+  var total = wo ? wo.exercises.length : 0;
+  var done = wo ? wo.exercises.filter(function(ex){ return gl(week, day, ex.id).done; }).length : 0;
+  var wkPct = Math.round(getWeekPct(week) * 100);
+  var trainPct = total ? done/total : wkPct/100;
+  var rings = [
+    { pct: Math.min(1, cal/target),        color: '#FF453A', label: 'Calories', val: cal.toLocaleString() + ' / ' + target.toLocaleString() },
+    { pct: Math.min(1, trainPct),          color: '#30D158', label: 'Training', val: (total ? done + ' of ' + total + ' exercises' : wkPct + '% of week ' + week) },
+    { pct: Math.min(1, prot/PROT_TARGET),   color: '#0A84FF', label: 'Protein',  val: prot + 'g / ' + PROT_TARGET + 'g' }
+  ];
+  var R = [50, 39, 28], svg = '';
+  rings.forEach(function(r, i){
+    var c = 2 * Math.PI * R[i];
+    svg += '<circle cx="60" cy="60" r="' + R[i] + '" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="11"/>'
+         + '<circle cx="60" cy="60" r="' + R[i] + '" fill="none" stroke="' + r.color + '" stroke-width="11" stroke-linecap="round" stroke-dasharray="' + c.toFixed(1) + '" stroke-dashoffset="' + (c * (1 - r.pct)).toFixed(1) + '" transform="rotate(-90 60 60)"/>';
+  });
+  var legend = rings.map(function(r){
+    return '<div class="rl-row"><span><span class="rl-dot" style="background:' + r.color + '"></span>' + r.label + '</span><span class="rl-val">' + r.val + '</span></div>';
+  }).join('');
+  var dots = '';
+  for(var w = 1; w <= 6; w++){
+    var p = Math.round(getWeekPct(w) * 100);
+    var col = p >= 60 ? '#30D158' : (w === week ? '#FFFFFF' : 'rgba(255,255,255,.18)');
+    dots += '<div class="wk-dot"><i style="border-color:' + col + (p >= 60 ? ';background:rgba(48,209,88,.25)' : '') + '"></i>W' + w + '<br>' + p + '%</div>';
+  }
+  var dateStr = new Date().toLocaleDateString(undefined, { weekday:'long', month:'long', day:'numeric' });
+  root.innerHTML =
+    '<div class="home-date">' + dateStr + ' · Week ' + week + ' of 6</div>'
+    + '<div class="home-title">Today</div>'
+    + '<div class="glass-card rings-flex"><svg width="120" height="120" viewBox="0 0 120 120">' + svg + '</svg>'
+    + '<div class="ring-legend">' + legend + '</div></div>'
+    + '<div class="glass-card"><div class="today-lbl">' + (info ? info.day + ' · ' + info.label : '') + '</div>'
+    + '<div class="today-big">' + (total ? (done === total && total > 0 ? 'Session complete. Strong work.' : done + ' of ' + total + ' exercises done') : 'Rest day — recover and refuel.') + '</div>'
+    + (total ? '<button class="open-btn" onclick="gotoTab(\'workout\')">Open Workout</button>' : '')
+    + '</div>'
+    + '<div class="quick-row">'
+    + '<button class="quick-btn" onclick="homePhoto()">Log Meal Photo</button>'
+    + '<button class="quick-btn" onclick="gotoTab(\'nutrition\')">Add Meal</button>'
+    + '<button class="quick-btn" onclick="gotoTab(\'progress\')">Progress</button>'
+    + '</div>'
+    + '<div class="glass-card"><div class="today-lbl">Program progress</div><div class="wk-dots">' + dots + '</div></div>';
+}
+
 
 // ── HERO STATS (v3) ─────────────────────────────────────────────
 function renderHero(){
@@ -1025,8 +1162,8 @@ function renderHero(){
   el.innerHTML =
     '<div class="hero-card">'
     + '<div class="hero-ring"><svg width="76" height="76" viewBox="0 0 64 64">'
-    + '<circle cx="32" cy="32" r="27" fill="none" stroke="#232B38" stroke-width="7"/>'
-    + '<circle cx="32" cy="32" r="27" fill="none" stroke="#C8F542" stroke-width="7" stroke-linecap="round" stroke-dasharray="' + C + '" stroke-dashoffset="' + off + '" transform="rotate(-90 32 32)"/>'
+    + '<circle cx="32" cy="32" r="27" fill="none" stroke="rgba(255,255,255,.10)" stroke-width="7"/>'
+    + '<circle cx="32" cy="32" r="27" fill="none" stroke="#30D158" stroke-width="7" stroke-linecap="round" stroke-dasharray="' + C + '" stroke-dashoffset="' + off + '" transform="rotate(-90 32 32)"/>'
     + '</svg><div class="hero-ring-num">' + Math.round(pct * 100) + '<span>%</span></div></div>'
     + '<div class="hero-main">'
     + '<div class="hero-kcal">' + cal.toLocaleString() + '<span> / ' + target.toLocaleString() + ' kcal</span></div>'

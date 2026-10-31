@@ -1,5 +1,5 @@
 // The Takeover — offline app-shell cache
-const CACHE = 'takeover-v5';
+const CACHE = 'takeover-v6';
 const ASSETS = [
   './',
   './index.html',
